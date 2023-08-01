@@ -6,6 +6,7 @@ import ExerciseDetail from './pages/ExerciseDetail'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
+
 function App() {
   return(
   <>
@@ -15,7 +16,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/exercise?:id' element={<ExerciseDetail />}/>
+        <Route path='/exercise/:id' element={<ExerciseDetail />}/>
       </Routes>
       
     <Footer />

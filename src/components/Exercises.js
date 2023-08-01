@@ -6,10 +6,10 @@ import { options, fetchData } from '../utils/fetchData';
 import ExerciseCard from './ExerciseCard';
 // import Loader from './Loader';
 
-const Exercises = ({ exercises, setExercises, bodyPart }) => {
+const Exercises = ({ exercises, setExercises, bodyPart, }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [exercisesPerPage] = useState(9);
-
+// console.log(exercises);
 
   const fetchExercisesData = async () => {
     let exercisesData = [];
@@ -42,6 +42,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   return (
     <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
+
       <Typography variant="h4" fontWeight="bold" 
       sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px">
         Showing Results
@@ -49,8 +50,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} 
          flexWrap="wrap" justifyContent="center">
-        {currentExercises.map((exercise, idx) => (
-          <ExerciseCard key={idx} exercise={exercise} />
+        {currentExercises.map((exercise, index) => (
+          <ExerciseCard key={index} exercise={exercise} />
         ))}
       </Stack>
 

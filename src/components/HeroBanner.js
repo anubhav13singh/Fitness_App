@@ -1,12 +1,14 @@
 import { Box, Typography} from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import fitness from '../assets/fitness.avif'
 
 function HeroBanner() {
   return (
     <>
-    <Box sx={{ mt: { lg: '212px', xs: '70px' }, ml: { sm: '50px' } }} position="relative" p="20px">
+    <Box sx={{ mt: { lg: '212px', xs: '70px' }, ml: { sm: '50px' } }}
+     position="relative" p="20px">
 
     <Typography color="#FF2625" fontWeight="600" fontSize="26px">Fitness Club</Typography>
 
@@ -16,16 +18,19 @@ function HeroBanner() {
       And Repeat
     </Typography>
 
-    <Typography fontSize="22px" fontFamily="Alegreya" lineHeight="35px">
+    <Typography fontSize="22px" fontFamily="Alegreya" lineHeight="35px" 
+    marginBottom='44px'>
       Check out the most effective exercises personalized to you
     </Typography>
 
-        <button href='#exercises' style={{ marginTop: '45px', width: '200px',
+        
+        <a  href='#exercises'  style={{ marginTop: '44px', width: '200px',
          textAlign: 'center', background: '#FF2625', padding: '14px',
-          fontSize: '20px', color: 'white', borderRadius: '4px', border:'none' }}> 
+          fontSize: '20px', color: 'white', borderRadius: '4px', border:'none', 
+          textDecoration:'none' }}> 
         Explore Exercises
-        </button>
-      
+        </a>
+   
    
     <Typography fontWeight={600} color="#FF2625" 
     sx={{ opacity: '0.1', display: { lg: 'block', xs: 'none' }, 

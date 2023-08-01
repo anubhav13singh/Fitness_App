@@ -1,9 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Box } from '@mui/material';
 
-function ExerciseDetail() {
+import Detail from '../components/Detail';
+import ExerciseVideos from '../components/ExerciseVideos';
+import SimilarExercises from '../components/SimilarExercises';
+import { options, fetchData, youtubeOptions } from '../utils/fetchData';
+
+
+const ExerciseDetail = () => {
+  const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
+  const { id } = useParams();
+
+
+  const fetchExercisesData = async () => {
+    const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
+    const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
+
+    const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, options);
+    setExerciseDetail(exerciseDetailData);
+    
+    const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
+    setExerciseVideos(exerciseVideosData.contents);
+// console.log(exerciseVideosData);
+
+    const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, options);
+    setTargetMuscleExercises(targetMuscleExercisesData);
+    console.log(targetMuscleExercisesData);
+
+    const equimentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, options);
+    setEquipmentExercises(equimentExercisesData);
+    console.log(targetMuscleExercisesData);
+  };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    fetchExercisesData();
+  }, [id]);
+
+  if (!exerciseDetail) return <div>No Data</div>;
+
   return (
-    <div>ExerciseDetail</div>
-  )
-}
+    <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
+      <Detail exerciseDetail={exerciseDetail} />
+      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
+      <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
+    </Box>
+  );
+};
 
-export default ExerciseDetail
+export default ExerciseDetail;
