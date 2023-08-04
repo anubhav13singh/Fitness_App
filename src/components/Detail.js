@@ -27,6 +27,7 @@ const Detail = ({ exerciseDetail }) => {
       <img src={exerciseDetail.gifUrl} alt={exerciseDetail.name} loading="lazy" className="detail-image" />
 
       <Stack sx={{ gap: { lg: '35px', xs: '20px' } }}>
+
         <Typography sx={{ fontSize: { lg: '64px', xs: '30px' } }} fontWeight={700} textTransform="capitalize">
           {exerciseDetail.name}
         </Typography>
@@ -40,13 +41,15 @@ const Detail = ({ exerciseDetail }) => {
 
         {extraDetail?.map((item) => (
           <Stack key={item.name} direction="row" gap="24px" alignItems="center">
+
             <Button sx={{ background: '#FFF2DB', borderRadius: '50%', width: '100px', height: '100px' }}>
-              <img src={item.icon} alt={exerciseDetail.bodyPart} 
-              style={{ width: '50px', height: '50px' }} />
+              <img src={item.icon} alt={'bodyPart'} style={{ width: '50px', height: '50px' }} />
             </Button>
+
             <Typography textTransform="capitalize" sx={{ fontSize: { lg: '30px', xs: '20px' } }}>
               {item.name}
             </Typography>
+
           </Stack>
         ))}
       </Stack>

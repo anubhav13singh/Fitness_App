@@ -1,32 +1,21 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import logo from '../assets/Fitness-Logo-Triceps-Transparent-PNG.png'
-
-
+import Icon from '../assets/Fitness-Logo-Triceps-Transparent-PNG.png';
 
 const BodyPart = ({ item, setBodyPart, bodyPart }) => (
-  <Stack type='button'
-  alignItems='center'
-  justifyContent='center'
-  className='bodyPart-card' onclick
-  sx={{
-    borderTop: bodyPart === item ? '4px solid #ff2625': '',
-    backgroundColor:'#fff',
-    width:'200px',height:'150px',
-    cursor:'pointer',
-    gap:'4px'
-  }}
-  onClick={() => {
-    setBodyPart(item);
-    window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
-  }}
+  <Stack
+    type="button"
+    alignItems="center"
+    justifyContent="center"
+    className="bodyPart-card"
+    sx={bodyPart === item ? { borderTop: '4px solid #FF2625', background: '#fff', borderBottomLeftRadius: '20px', width: '270px', height: '282px', cursor: 'pointer', gap: '47px' } : { background: '#fff', borderBottomLeftRadius: '20px', width: '270px', height: '282px', cursor: 'pointer', gap: '47px' }}
+    onClick={() => {
+      setBodyPart(item);
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+    }}
   >
-     <img src={logo} alt="dumbbell" style={{ width: '40px', height: '40px' }} />
-
-    <Typography fontSize="24px" fontWeight="bold" fontFamily="Alegreya"
-     color="#3A1212" textTransform="capitalize"> 
-     {item}
-     </Typography>
+    <img src={Icon} alt="dumbbell" style={{ width: '40px', height: '40px' }} />
+    <Typography fontSize="24px" fontWeight="bold" fontFamily="Alegreya" color="#3A1212" textTransform="capitalize"> {item}</Typography>
   </Stack>
 );
 
