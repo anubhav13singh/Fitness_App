@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/Fitness-Logo-Triceps-Transparent-PNG.png'
 import { Stack } from '@mui/system';
 
 function Navbar() {

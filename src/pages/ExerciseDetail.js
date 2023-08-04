@@ -29,11 +29,11 @@ const ExerciseDetail = () => {
 
     const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, options);
     setTargetMuscleExercises(targetMuscleExercisesData);
-    console.log(targetMuscleExercisesData);
+    // console.log(targetMuscleExercisesData);
 
     const equimentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, options);
     setEquipmentExercises(equimentExercisesData);
-    console.log(targetMuscleExercisesData);
+    // console.log(targetMuscleExercisesData);
   };
 
   useEffect(() => {

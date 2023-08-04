@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import logo from '../assets/logo.jpg'
+import logo from '../assets/Fitness-Logo-Triceps-Transparent-PNG.png'
 
 
 
